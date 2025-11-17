@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simule seu Financiamento - mybMotos</title>
+<link rel="stylesheet" href="/frontend/static/css/style.css">    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/frontend/assets/img/logo1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="container">
+<a href="/" class="logo">            <img src="/frontend/assets/img/logo1.png" alt="mybMotos Logo" style="height: 45px;">
+        </a>
+        
+<nav class="main-nav">
+    <a href="/estoque">Motos</a>
+    <a href="/vendidos">Vendidos</a>
+    <a href="/financiamento">Financiamento</a>
+    <a href="/sobre">Sobre Nós</a>
+    <a href="#contato">Contato</a>
+</nav>
+        
+        <button class="hamburger-icon" id="hamburger-icon" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+<div class="header-actions">
+    <div class="header-contact">
+        <i class="fa-solid fa-phone"></i>
+        <span>(19) 98151-7788</span>
+    </div>
+    <a href="#contato" class="btn-cta">Fale Conosco</a>
+</div>
+    </div>
+<div class="mobile-menu-container" id="mobile-menu-container">
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <div class="mobile-menu-panel" id="mobile-menu-panel">
+        <div class="mobile-menu-header">
+            <button class="btn-close-menu" id="btn-close-menu">
+                <i class="fa-solid fa-xmark"></i>
+                <span>FECHAR</span>
+            </button>
+            </div>
+        <nav class="mobile-main-nav">
+            <a href="/">
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
+            <a href="/estoque">
+                <i class="fa-solid fa-motorcycle"></i>
+                <span>Motos</span>
+            </a>
+            <a href="/vendidos">
+                <i class="fa-solid fa-tags"></i>
+                <span>Vendidos</span>
+            </a>
+            <a href="/financiamento">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <span>Financiamento</span>
+            </a>
+            <a href="/sobre">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Sobre Nós</span>
+            </a>
+            <a href="#contato">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Contato</span>
+            </a>
+        </nav>
+    </div>
+</div>
+</header>
+
+<main class="container">
+    <div class="page-header">
+        <h1>Simule seu Financiamento</h1>
+        <p>Use nossa ferramenta para ter uma estimativa e envie sua proposta para análise.</p>
+    </div>
+
+    <div class="financing-layout-pro">
+       <section class="simulator-pro">
+            <h3 class="panel-title"><i class="fa-solid fa-calculator"></i> Simulador Interativo</h3>
+            
+            <div class="form-group">
+                <label for="valor-moto">Valor da Moto (R$)</label>
+                <input type="number" id="valor-moto" class="financing-input" value="20000" step="500" placeholder="Ex: 20000">
+            </div>
+            
+            <div class="form-group">
+                <label for="valor-entrada">Valor da Entrada (R$)</label>
+                <input type="number" id="valor-entrada" class="financing-input" value="5000" step="500" placeholder="Ex: 5000">
+            </div>
+
+            <div class="form-group">
+                <label for="num-parcelas">Número de Parcelas</label>
+                <div class="select-wrapper">
+                    <select id="num-parcelas">
+                        <option value="12">12 vezes</option>
+                        <option value="24">24 vezes</option>
+                        <option value="36" selected>36 vezes</option>
+                        <option value="48">48 vezes</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="simulator-result-pro">
+                <span class="result-label">Valor estimado da parcela:</span>
+                <h2 id="valor-parcela">R$ ---,--</h2>
+                <small>*Simulação com taxa de juros de 1.99% a.m. O valor real pode variar.</small>
+            </div>
+        </section>
+
+        <section class="form-pro">
+            <h3 class="panel-title"><i class="fa-solid fa-file-signature"></i> Envie sua Proposta</h3>
+            <form id="financing-form">
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="nome" placeholder="Nome Completo" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Seu melhor email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <input type="tel" id="telefone" placeholder="Telefone / WhatsApp" required>
+                </div>
+
+                                <div id="form-message" class="login-message-container"></div>
+
+                                <button type="submit" class="btn-submit-form" id="financing-submit-btn">
+                    <span class="btn-text">Solicitar Análise de Crédito</span>
+                    <span class="btn-loader">
+                        <i class="fa-solid fa-spinner fa-spin"></i> Enviando...
+                    </span>
+                </button>
+            </form>
+        </section>
+    </div>
+</main>
+
+<footer id="contato" class="main-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column">
+    <a href="/" class="logo">                <img src="/frontend/assets/img/logo1.png" alt="mybMotos Logo" style="height: 45px;">
+            </a>
+                <h4 class="footer-social-title">Siga nas redes sociais</h4>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/mybmotos/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Navegação</h4>
+                <ul class="footer-links">
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/estoque">Estoque Completo</a></li>
+                    <li><a href="/sobre">Sobre Nós</a></li>
+                    <li><a href="/financiamento">Financiamento</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contato</h4>
+                <div class="footer-contact-info">
+                    <div class="info-block-footer">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Tapiratiba - SP</span>
+                    </div>
+                    <div class="info-block-footer">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>(19) 98151-7788</span>
+                    </div>
+                    <div class="info-block-footer">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>(19) 98440-7406</span>
+                    </div>
+                    <div class="info-block-footer">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>(19) 98275-9425</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-map-section">
+            <h4>Nossa Localização</h4>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29703.862850374448!2d-46.764227731992975!3d-21.469189300642558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b636a1e2d3a88f%3A0xd9620488a545d15c!2sTapiratiba%2C%20SP%2C%2013760-000!5e0!3m2!1spt-BR!2sbr!4v1760631889477!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+</footer>
+<script src="/frontend/static/js/script.js"></script>
+<script src="/frontend/static/js/financiamento.js"></script>
+</body>
+<div class="loading-overlay" id="loading-overlay">
+    <div class="loading-spinner"></div>
+    <p>Buscando as melhores motos...</p>
+</div>
+</html>

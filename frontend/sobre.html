@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - mybMotos</title>
+    <link rel="stylesheet" href="/frontend/static/css/style.css"> 
+    <link rel="shortcut icon" href="/frontend/assets/img/logo1.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="container">
+        <a href="/" class="logo">
+            <img src="/frontend/assets/img/logo1.png" alt="mybMotos Logo" style="height: 45px;">
+        </a>
+        
+        <nav class="main-nav">
+            <a href="/estoque">Motos</a>
+            <a href="/vendidos">Vendidos</a>
+            <a href="/financiamento">Financiamento</a>
+            <a href="/sobre">Sobre Nós</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        
+        <button class="hamburger-icon" id="hamburger-icon" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+<div class="header-actions">
+    <div class="header-contact">
+        <i class="fa-solid fa-phone"></i>
+        <span>(19) 98151-7788</span>
+    </div>
+    <a href="#contato" class="btn-cta">Fale Conosco</a>
+</div>
+    </div>
+<div class="mobile-menu-container" id="mobile-menu-container">
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <div class="mobile-menu-panel" id="mobile-menu-panel">
+        <div class="mobile-menu-header">
+            <button class="btn-close-menu" id="btn-close-menu">
+                <i class="fa-solid fa-xmark"></i>
+                <span>FECHAR</span>
+            </button>
+            </div>
+        <nav class="mobile-main-nav">
+            <a href="/">
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
+            <a href="/estoque">
+                <i class="fa-solid fa-motorcycle"></i>
+                <span>Motos</span>
+            </a>
+            <a href="/vendidos">
+                <i class="fa-solid fa-tags"></i>
+                <span>Vendidos</span>
+            </a>
+            <a href="/financiamento">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <span>Financiamento</span>
+            </a>
+            <a href="/sobre">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Sobre Nós</span>
+            </a>
+            <a href="#contato">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Contato</span>
+            </a>
+        </nav>
+    </div>
+</div>
+</header>
+<main> <section class="about-hero">
+        <div class="container">
+            <h1>Sobre a mybMotos</h1>
+            <p>Paixão por duas rodas, compromisso com a qualidade.</p>
+        </div>
+    </section>
+
+    <section class="our-values">
+        <div class="container">
+            <h2>Por que escolher a mybMotos?</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fa-solid fa-motorcycle"></i>
+                    <h3>Paixão por Motos</h3>
+                    <p>Não apenas vendemos motos, nós as vivemos. Entendemos o que você procura e compartilhamos da mesma paixão.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Confiança e Transparência</h3>
+                    <p>Negociações claras, motos com procedência verificada e um processo de compra sem surpresas. Sua confiança é o nosso motor.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h3>Qualidade Garantida</h3>
+                    <p>Cada moto em nosso estoque passa por uma inspeção rigorosa para garantir que você saia com o melhor em segurança e desempenho.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-story">
+        <div class="container">
+            <div class="story-layout">
+                <div class="story-image">
+                    <img src="/frontend/assets/img/logo.png" alt="Oficina de motos parceira da mybMotos">
+                </div>
+                <div class="story-content">
+                    <h2>Nossa História</h2>
+                    <p>Fundada em 2025, a mybMotos nasceu do sonho de conectar apaixonados por motocicletas com a máquina perfeita para suas aventuras. Começamos como uma pequena loja familiar e, com muito trabalho e dedicação, nos tornamos uma referência na região em motos seminovas de procedência e qualidade garantida.</p>
+                    <p>Acreditamos que uma moto é mais do que um meio de transporte; é um estilo de vida. Por isso, cada veículo em nosso estoque é inspecionado rigorosamente para garantir não apenas a segurança, mas também a satisfação total de nossos clientes.</p>
+                    
+                    <h3>Nossa Missão</h3>
+                    <p>Oferecer as melhores motos seminovas do mercado com transparência, confiança e um atendimento personalizado, transformando a compra de uma motocicleta em uma experiência única e memorável.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-cta">
+        <div class="container">
+            <h2>Pronto para encontrar seu próximo sonho?</h2>
+            <p>Explore nosso estoque completo de motos selecionadas e revisadas.</p>
+            <a href="/estoque" class="btn-cta-large">Ver Estoque Completo</a>
+        </div>
+    </section>
+
+</main>
+
+<footer id="contato" class="main-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column">
+    <a href="/" class="logo">                <img src="/frontend/assets/img/logo1.png" alt="mybMotos Logo" style="height: 45px;">
+            </a>
+                <h4 class="footer-social-title">Siga nas redes sociais</h4>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/mybmotos/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Navegação</h4>
+                <ul class="footer-links">
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/estoque">Estoque Completo</a></li>
+                    <li><a href="/sobre">Sobre Nós</a></li>
+                    <li><a href="/financiamento">Financiamento</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contato</h4>
+                <div class="footer-contact-info">
+                    <div class="info-block-footer">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Tapiratiba - SP</span>
+                    </div>
+                    <div class="info-block-footer">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>(19) 98151-7788</span>
+                    </div>
+                    <div class="info-block-footer">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>(19) 98440-7406</span>
+                    </div>
+                    <div class="info-block-footer">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>(19) 98275-9425</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-map-section">
+            <h4>Nossa Localização</h4>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29703.862850374448!2d-46.764227731992975!3d-21.469189300642558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b636a1e2d3a88f%3A0xd9620488a545d15c!2sTapiratiba%2C%20SP%2C%2013760-000!5e0!3m2!1spt-BR!2sbr!4v1760631889477!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+</footer>
+
+<script src="/frontend/static/js/script.js"></script>
+</body>
+<div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Buscando as melhores motos...</p>
+    </div>
+</html>

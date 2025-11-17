@@ -1,0 +1,3138 @@
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --primary-color: #E60000; /* Vermelho forte, inspirado em marcas automotivas */
+    --dark-color: #1a1a1a;    /* Preto/Cinza bem escuro para textos */
+    --gray-color: #2c2c2c;    /* Cinza escuro para elementos secundários */
+    --light-color: #f4f5f7;   /* Cinza muito claro para o fundo do site */
+    --white-color: #ffffff;
+    --border-color: #e0e0e0; /* Cor para bordas sutis */
+    --font-family: 'Poppins', sans-serif; /* Nova fonte profissional */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-color); /* Fundo claro para um visual mais limpo */
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Localize este bloco no seu style.css */
+.main-header {
+    position: relative; /* <-- ADICIONE ESTA LINHA */
+    background-color: #ccc; /* <-- MUDE ESTA LINHA */
+    padding: 15px 0;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo img {
+    height: 45px; /* Define uma altura nítida para a logo */
+    width: auto;  /* Deixa a largura automática */
+}
+
+/* Estilos da Navegação Principal */
+.main-nav a {
+    color: #555;
+    margin: 0 18px;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 5px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Efeito de sublinhado animado */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Área de Ações e CTA */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+}
+
+.header-contact i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.btn-cta {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(230, 0, 0, 0.4);
+}
+
+/* --- Seção Hero --- */
+.hero {
+    /* Por enquanto, um fundo sólido. Adicionaremos uma imagem de fundo depois. */
+    background-color: #e9e9e9; 
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px 0 0 5px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+}
+
+.search-box input:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+.btn-search {
+    padding: 15px 30px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    font-family: var(--font-family);
+    font-weight: 500;
+}
+
+/* --- Seção de Destaques --- */
+.featured-bikes {
+    padding: 60px 0;
+}
+
+.featured-bikes h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+/* --- Rodapé --- */
+.main-footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--white-color);
+    color: #777;
+}
+
+/* --- Estilos da Grade e Cards de Moto (v2.0 Profissional) --- */
+.bikes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.bike-card {
+    background-color: var(--white-color);
+    border: 1px solid #E9E9E9;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    max-width: 380px; /* <-- ADICIONE ESTA LINHA PARA LIMITAR A LARGURA */
+    cursor: pointer;
+}
+
+.bike-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.bike-card-img {
+    position: relative;
+}
+
+.bike-card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.bike-favorite-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--dark-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.bike-favorite-icon:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+}
+
+.bike-card-content {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.bike-card-content h3 {
+    font-size: 1.1rem; /* Mais contido e elegante */
+    font-weight: 600;
+    color: var(--dark-color);
+    margin: 0;
+    /* Forçar quebra de linha para títulos longos */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bike-price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--dark-color); /* Preço em preto dá mais peso */
+    margin: 8px 0;
+}
+
+.bike-card-info {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 18px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.info-item i {
+    font-size: 0.8rem;
+}
+
+.btn-details {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: auto; /* Alinha na parte inferior */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-details:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+
+/* --- Estilos da Página de Estoque --- */
+.page-header {
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.stock-page-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Coluna fixa de 280px para filtros, resto para a grade */
+    gap: 30px;
+}
+
+/* --- Estilos da Sidebar de Filtros --- */
+.filters-sidebar {
+    background-color: var(--white-color);
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    height: fit-content; /* Faz a altura se ajustar ao conteúdo */
+}
+
+.filters-sidebar h4 {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.filter-group {
+    margin-bottom: 25px;
+}
+
+.filter-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.filter-group input[type="text"],
+.filter-group input[type="number"],
+.filter-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+}
+
+.filter-group .year-range {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-value {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.btn-filter {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-filter:hover {
+    background-color: #c00;
+}
+
+
+/* --- Estilos da Página de Detalhes da Moto --- */
+.moto-detail-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Coluna da imagem maior que a de texto */
+    gap: 40px;
+    padding: 40px 0;
+}
+
+.moto-image-gallery img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.moto-info-panel h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.moto-detail-price {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.moto-specs-box {
+    display: flex;
+    gap: 25px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 25px;
+}
+
+.moto-description h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.moto-description p {
+    color: #555;
+    line-height: 1.7;
+}
+
+.moto-cta-box {
+    margin-top: 30px;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: var(--white-color);
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp i {
+    font-size: 1.5rem;
+}
+
+
+/* --- ESTILOS DA NOVA LOGO TIPOGRÁFICA --- */
+.logo {
+    display: flex; /* Para alinhar "myb" e "Motos" lado a lado */
+    align-items: baseline; /* Alinha pela base do texto */
+    text-decoration: none;
+    color: inherit; /* Garante que a cor padrão do link não atrapalhe */
+}
+
+.logo-main {
+    font-family: 'Montserrat', sans-serif; /* Uma fonte robusta para o "myb" */
+    font-weight: 700;
+    font-size: 2.2rem; /* Tamanho maior para o destaque */
+    color: var(--primary-color); /* Usa a cor principal do tema */
+    letter-spacing: -1px; /* Espaçamento entre letras para compactar um pouco */
+}
+
+.logo-moto {
+    font-family: 'Oswald', sans-serif; /* Uma fonte mais estilizada para "Motos" */
+    font-weight: 500;
+    font-size: 1.8rem; /* Um pouco menor que o "myb" */
+    color: var(--text-color); /* Uma cor secundária ou a cor do texto padrão */
+    margin-left: 5px; /* Pequeno espaçamento entre "myb" e "Motos" */
+    position: relative;
+    top: -2px; /* Ajusta um pouco a posição vertical para alinhar melhor */
+}
+
+/* Ajustes para o cabeçalho se necessário */
+.main-header .logo {
+    padding: 10px 0; /* Para dar um respiro em cima e embaixo da logo no cabeçalho */
+}
+
+/* Se você quiser remover a logo antiga, pode apagar este CSS */
+.logo img {
+    /* display: none; */ /* Descomente para esconder a imagem se ainda tiver a tag img */
+    max-height: 50px; /* Mantém se você quiser voltar a usar imagem */
+    width: auto;
+}
+
+
+/* --- Estilos das Páginas de Conteúdo (Sobre/Contato) --- */
+.content-section {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    background: var(--white-color);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+.content-section h2, .content-section h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.content-section p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+.content-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* --- Estilos Específicos da Página de Contato --- */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+}
+.contact-info h3, .contact-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+.info-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.info-block i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 5px;
+}
+.info-block p {
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+}
+.map-container {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-submit:hover {
+    background-color: #c00;
+}
+
+
+/* --- Estilos do Novo Rodapé (Estilo Honda) --- */
+.main-footer {
+    background-color: #f0f0f0; /* Cinza claro, como na referência */
+    color: #555;
+    padding: 60px 0 0 0;
+    margin-top: 60px;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-column {
+    text-align: center; /* Alinha o h4 e o conteúdo inline */
+}
+/* ============================================== */
+.footer-column h4 {
+    font-size: 1.1rem;
+    color: var(--primary-color); /* Títulos em vermelho */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.logo-moto-footer {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: var(--dark-color); /* Logo escura no rodapé claro */
+    margin-left: 5px;
+    position: relative;
+    top: -2px;
+}
+
+.footer-social-title {
+    margin-top: 25px;
+    font-size: 1.1rem;
+    display: flex;
+    left: 200px;
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    justify-content: center; /* <-- ADICIONE ESTA LINHA */
+}
+
+.footer-socials a {
+    color: #555;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.info-block-footer {
+    display: flex;
+    align-items: flex-start; /* Alinha pelo topo */
+    gap: 12px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    justify-content: center;
+}
+
+.info-block-footer i {
+    font-size: 1.1rem;
+    color: #888;
+    margin-top: 3px; /* Pequeno ajuste para alinhar o ícone ao texto */
+    width: 18px;     /* Largura fixa para alinhar os textos */
+    text-align: center; /* Centraliza o ícone dentro da largura fixa */
+}
+
+.footer-map-section {
+    padding: 40px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-map-section h4 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.footer-bottom {
+    background-color: #e0e0e0;
+    padding: 20px 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+.footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-legal-links a {
+    color: #666;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+.footer-legal-links a:hover {
+    color: var(--primary-color);
+}
+
+
+/* ==============================================
+   ESTILOS DE RESPONSIVIDADE (VERSÃO FINAL E CORRIGIDA)
+   ==============================================
+*/
+
+/* Esconde o ícone e o menu por padrão em telas grandes */
+.hamburger-icon,
+.mobile-menu {
+    display: none;
+}
+
+/* REGRAS PARA TELAS MENORES QUE 992px (TABLETS E CELULARES) */
+@media (max-width: 992px) {
+
+
+        /* --- 1. LAYOUT GERAL DO ADMIN --- */
+
+    /* Botão Hamburger (desativado) */
+    .admin-menu-toggle {
+        display: none;
+    }
+
+
+
+    /* Sidebar mobile (escondida de início) */
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 280px;
+        z-index: 1100;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        overflow-y: auto;
+    }
+
+    /* Overlay do menu mobile */
+    .admin-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1099;
+    }
+
+    /* Sidebar aberta */
+    .sidebar.is-open {
+        transform: translateX(0);
+    }
+    .admin-menu-overlay.is-open {
+        display: block;
+    }
+
+    /* Ajusta o conteúdo */
+    .main-content {
+        padding: 20px;
+        padding-bottom: 90px; /* Espaço para o footer mobile */
+    }
+    /* Esconde a navegação e as ações do desktop */
+    .main-nav,
+    .header-actions {
+        display: none;
+    }
+
+    /* Mostra o ícone hambúrguer */
+    .hamburger-icon {
+        display: block; /* A regra mais importante */
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        color: var(--dark-color);
+        cursor: pointer;
+    }
+
+    /* Ajusta o container do header para a logo ficar no meio e o ícone na ponta */
+    .main-header .container {
+        justify-content: space-between;
+        position: relative;
+    }
+    .main-header .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Regras do painel do menu mobile que abre */
+    .mobile-menu {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--white-color);
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 100;
+        border-top: 1px solid var(--border-color);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        
+        /* A mágica da animação acontece aqui */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+    /* Quando o menu está ativo, ele ganha altura e aparece */
+    .mobile-menu.is-active {
+        max-height: 500px;
+    }
+    .mobile-menu a {
+        padding: 18px 20px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .mobile-menu a:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Ajusta os layouts de coluna para ficarem verticais */
+    .stock-page-layout, 
+    .moto-detail-layout, 
+    .contact-layout, 
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ==============================================
+   NOVOS ESTILOS DO MENU LATERAL (ESTILO HONDA)
+   ============================================== */
+
+/* O container principal que controla a visibilidade */
+.mobile-menu-container {
+    /* Escondido por padrão para não interferir */
+    visibility: hidden;
+    position: fixed; /* Garante que o menu e o overlay cubram a tela toda */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+/* Camada escura de fundo */
+.mobile-menu-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0; /* Começa transparente */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Painel do menu que desliza da esquerda */
+.mobile-menu-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85%;
+    max-width: 320px;
+    height: 100%;
+    background-color: var(--white-color);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    transform: translateX(-100%); /* Começa fora da tela, à esquerda */
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- ESTADOS QUANDO O MENU ESTÁ ABERTO --- */
+.mobile-menu-container.is-open {
+    visibility: visible; /* Torna o container visível */
+}
+
+.mobile-menu-container.is-open .mobile-menu-overlay {
+    opacity: 1; /* Mostra a camada escura */
+}
+
+.mobile-menu-container.is-open .mobile-menu-panel {
+    transform: translateX(0); /* Move o menu para a tela */
+}
+
+
+/* --- Estilos internos do painel do menu --- */
+
+/* Cabeçalho com o botão de fechar */
+.mobile-menu-header {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.btn-close-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    margin-left: -10px; /* Alinha melhor com a borda */
+}
+.btn-close-menu i {
+    font-size: 1.5rem;
+}
+
+/* Links de navegação */
+.mobile-main-nav {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz a navegação ocupar o espaço restante */
+}
+
+.mobile-main-nav a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 25px;
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 500;
+    border-bottom: 1px solid #e9e9e9;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-main-nav a:hover {
+    background-color: #f0f0f0;
+}
+
+.mobile-main-nav a i {
+    font-size: 1.5rem;
+    color: #777;
+    width: 30px; /* Alinha os ícones */
+    text-align: center;
+}
+
+
+/* --- ESTILOS DO PAINEL ADMINISTRATIVO (v2.0) --- */
+.admin-body {
+    /* Remove o flexbox daqui para o container principal controlar o layout */
+    background-color: var(--light-color);
+}
+
+.login-page-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Divide a tela em duas colunas */
+    height: 100vh;
+}
+
+/* Lado Esquerdo (Branding) */
+.login-branding-side {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+.branding-content .logo-moto-inverted {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: var(--white-color); /* Versão da logo com texto branco */
+    margin-left: 5px;
+}
+.branding-content p {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-top: 15px;
+}
+
+/* Lado Direito (Formulário) */
+.login-form-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.login-box h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.login-box p {
+    color: #777;
+    margin-bottom: 40px;
+}
+
+/* Estilo moderno para os inputs com ícones */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 50px; /* Espaço para o ícone */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.1);
+}
+.input-group input:focus + i {
+    color: var(--primary-color);
+}
+
+/* Botão de submit melhorado */
+.login-box .btn-submit {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(230, 0, 0, 0.2);
+}
+
+/* --- Responsividade para a tela de login --- */
+@media (max-width: 768px) {
+    .login-page-container {
+        grid-template-columns: 1fr; /* Coluna única em telas pequenas */
+    }
+    .login-branding-side {
+        padding: 60px 20px;
+        height: 40vh; /* Ocupa uma parte menor da tela */
+    }
+    .login-form-side {
+        height: 60vh;
+    }
+}
+
+
+/* --- ESTILOS DO DASHBOARD (v2.0 UX/UI) --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0 30px 0;
+}
+.dashboard-header h1 {
+    font-size: 2rem;
+}
+.btn-add-new {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease;
+}
+.btn-add-new:hover {
+    transform: scale(1.05);
+}
+
+/* ORDEM CORRETA: MOTO(4fr), PREÇO(2fr), ANO(1fr), AÇÕES(2fr) */
+
+.moto-list-header {
+    display: grid;
+    grid-template-columns: 4fr 2fr 1fr 2fr;
+    padding: 0 25px;
+    margin-bottom: 15px;
+    color: #888;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+#moto-list-body .moto-list-item {
+    display: grid;
+    /* ESTA É A REGRA MAIS IMPORTANTE: */
+    grid-template-columns: 4fr 2fr 1fr 2fr; 
+    align-items: center;
+    background-color: var(--white-color);
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#moto-list-body .moto-list-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.col-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.item-moto-img {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.item-moto-details {
+    display: flex;
+    flex-direction: column;
+}
+.item-moto-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.item-moto-id {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.col-preco {
+    font-weight: 600;
+}
+
+.col-acoes {
+    display: flex;
+    justify-content: flex-end; /* Alinha os botões à direita */
+    gap: 15px;
+}
+.btn-action-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #888;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+.btn-action-icon:hover {
+    transform: scale(1.2);
+}
+.btn-edit:hover {
+    color: #007bff;
+}
+.btn-delete:hover {
+    color: var(--primary-color);
+}
+.list-empty-message {
+    text-align: center;
+    padding: 40px;
+    background-color: var(--white-color);
+    border-radius: 8px;
+}
+
+
+/* --- ESTILOS DAS PÁGINAS INTERNAS DO ADMIN --- */
+.admin-body-internal {
+    background-color: var(--light-color);
+}
+.form-container {
+    background-color: var(--white-color);
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 25px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1; /* Ocupa a largura inteira */
+}
+
+.form-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    text-align: right; /* Alinha o botão à direita */
+}
+
+.btn-submit-form {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-submit-form:hover {
+    background-color: #c00;
+}
+
+/* --- ESTILOS PARA CUSTOMIZAR O SELECT --- */
+
+/* O container que nos permite posicionar a seta */
+.select-wrapper {
+    position: relative;
+}
+
+/* A seta customizada */
+.select-wrapper::after {
+    content: '▼'; /* Você pode usar '▼' ou '\25BC' */
+    font-size: 1rem;
+    color: #888;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Garante que você possa clicar no select através da seta */
+}
+
+
+
+.image-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.image-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+
+/* --- ESTILOS DO MODAL DE NOTIFICAÇÃO --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    
+    /* Começa invisível */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    
+    /* Animação de entrada */
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.is-visible .modal {
+    transform: translateY(0);
+}
+
+.modal-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* Estilo para Sucesso */
+.modal--success .modal-icon {
+    color: #28a745; /* Verde */
+}
+/* Estilo para Erro */
+.modal--error .modal-icon {
+    color: var(--primary-color); /* Vermelho */
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.modal-body p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.modal-footer {
+    margin-top: 25px;
+}
+
+.btn-modal-close {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-modal-close:hover {
+    background-color: #555;
+}
+
+
+.actions-cell {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-end; /* Garante alinhamento à direita */
+}
+
+/* Estilo para botões com texto (Ex: Ver Detalhes) */
+.btn-action-text {
+    background: none;
+    border: 1px solid #ccc;
+    color: #555;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.btn-action-text:hover {
+    background-color: #f0f0f0;
+    color: #111;
+    border-color: #aaa;
+}
+
+/* Estilo para botões com ícone (Ex: Lixeira) */
+.btn-action-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem; /* Aumenta um pouco o tamanho do ícone */
+    color: #888;
+    padding: 5px; /* Adiciona uma área de clique confortável */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+.btn-action-icon:hover {
+    transform: scale(1.2);
+}
+.btn-delete:hover {
+    color: var(--primary-color); /* Cor vermelha ao passar o mouse na lixeira */
+}
+
+.btn-action-icon .fa-solid {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
+    font-weight: 900;
+}
+
+
+/* --- ESTILOS DO MODAL DE EDIÇÃO --- */
+.modal-edit {
+    background-color: var(--white-color);
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+.modal-edit .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+.modal-edit .modal-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.btn-close-modal {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #888;
+    cursor: pointer;
+}
+.modal-edit .modal-body {
+    padding: 25px;
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for grande */
+}
+
+
+/* --- ESTILOS PARA EXCLUSÃO DE IMAGEM NO MODAL --- */
+.image-preview-wrapper {
+    position: relative;
+}
+
+.btn-delete-image {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+.btn-delete-image:hover {
+    transform: scale(1.1);
+}
+
+.capa-tag {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+
+/* --- ESTILOS DO CARROSSEL DE IMAGENS --- */
+.gallery-main-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10; /* Proporção da imagem principal */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.gallery-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 15px 12px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+.gallery-nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.prev-btn {
+    left: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.next-btn {
+    right: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    max-width: 100%;
+    overflow-x: auto; /* Permite rolar se houver muitas miniaturas */
+}
+
+.gallery-thumbnails .thumbnail {
+    width: 90px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.gallery-thumbnails .thumbnail:hover {
+    opacity: 1;
+}
+
+.gallery-thumbnails .thumbnail.active {
+    border-color: var(--primary-color);
+    opacity: 1;
+}
+
+
+/* --- ESTILOS DA PÁGINA DE FINANCIAMENTO (v2.0 PRO) --- */
+.financing-layout-pro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: flex-start;
+    background-color: var(--white-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+.panel-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--dark-color);
+}
+.panel-title i {
+    color: var(--primary-color);
+}
+.slider-group {
+    margin-bottom: 30px;
+}
+.slider-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.slider-label label {
+    font-weight: 500;
+}
+.slider-label span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+.custom-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+    cursor: pointer;
+}
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 3px solid var(--white-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.simulator-result-pro {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--light-color);
+    text-align: center;
+}
+.result-label { color: #666; }
+.simulator-result-pro h2 { font-size: 2.5rem; color: var(--dark-color); margin: 5px 0; }
+.simulator-result-pro small { color: #888; }
+
+.form-pro .btn-submit-form {
+    width: 100%;
+    margin-top: 10px;
+}
+.form-pro .input-group {
+    margin-bottom: 20px;
+}
+.form-pro .input-group input {
+    border-radius: 8px;
+    padding: 16px 16px 16px 50px;
+}
+
+@media (max-width: 992px) {
+    .financing-layout-pro {
+        grid-template-columns: 1fr;
+        padding: 30px 20px; /* Reduz o padding em telas menores */
+    }
+}
+
+
+
+.financing-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+
+
+
+/* --- ESTILO GLOBAL PARA SELECT CUSTOMIZADO --- */
+
+/* O container que posiciona a seta */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* A seta customizada (feita com bordas para um visual mais nítido) */
+.select-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Permite clicar no select através da seta */
+    
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #555; /* Cor da seta */
+}
+
+/* A regra principal que estiliza o select */
+.select-wrapper select {
+    /* Remove a aparência padrão do navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    /* Estilos para igualar aos outros inputs */
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    background-color: var(--white-color);
+    cursor: pointer;
+}
+
+
+/* ==============================================
+   ESTILOS DO HERO CARROSSEL AVANÇADO (FADE + KEN BURNS)
+   ============================================== */
+
+/* 1. Keyframes para as Animações */
+
+/* Animação Ken Burns (Zoom suave) */
+@keyframes kenBurns {
+    0% {
+        transform: scale(1.0) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.15) translate(-2%, 2%); /* Zoom in e move um pouco */
+    }
+}
+
+/* Animação do texto (Fade In + Sobe) */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. Seção Hero (Wrapper principal) */
+.hero {
+    padding: 0; 
+    background-color: var(--dark-color);
+    height: 70vh;
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 3. Container do Carrossel */
+.hero-carousel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* O Track não se move, só segura os slides */
+.hero-carousel-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* 4. Slides (Lógica do Fade) */
+.hero-slide {
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Slides empilhados */
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 1.2s ease-in-out; /* Transição de FADE */
+    z-index: 5;
+    
+    /* Prepara para centralizar o conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* O slide ativo é o único visível */
+.hero-slide.is-active {
+    opacity: 1;
+    z-index: 10;
+}
+
+/* 5. Efeito Ken Burns no Slide Ativo */
+/* Criamos um pseudo-elemento para animar o background sem afetar o fade */
+.hero-slide.is-active::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: inherit; /* Copia o background-image do .hero-slide */
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    /* Aplica a animação SÓ no slide ativo */
+    animation: kenBurns 10s linear infinite alternate;
+}
+
+/* 6. Overlay escuro (Fica entre o Ken Burns e o Conteúdo) */
+.hero-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45); /* Um pouco mais escuro */
+    z-index: -1;
+}
+
+/* 7. Conteúdo (h1, p, search) - Agora animado */
+.hero-content {
+    color: var(--white-color);
+    max-width: 650px;
+    padding: 20px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    
+    /* Prepara para a animação */
+    opacity: 0;
+}
+
+.hero-slide.is-active .hero-content {
+    /* Ativa a animação do conteúdo SÓ no slide ativo */
+    /* (nome, duração, easing, delay, iteração, fill-mode) */
+    animation: fadeInUp 1s ease-out 0.8s 1 forwards; 
+}
+
+/* Garante que o H1 e o P fiquem brancos */
+.hero-content h1 {
+    color: var(--white-color);
+}
+.hero-content p {
+    color: #f0f0f0;
+}
+
+/* 8. Botões de Navegação (Prev/Next) */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20; /* Fica acima do slide ativo */
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.carousel-btn.prev { left: 15px; border-radius: 0 5px 5px 0; }
+.carousel-btn.next { right: 15px; border-radius: 5px 0 0 5px; }
+
+/* 9. Paginação (Bolinhas) */
+.carousel-pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    gap: 10px;
+}
+.pagination-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.pagination-dot:hover {
+    transform: scale(1.2);
+}
+.pagination-dot.active {
+    background-color: var(--white-color);
+}
+
+/* 10. Responsividade (O principal) */
+@media (max-width: 768px) {
+    .hero {
+        height: 80vh; 
+        min-height: 450px;
+    }
+
+    .carousel-btn {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* A caixa de busca no mobile */
+    .search-box {
+        flex-direction: column;
+        box-shadow: none;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .search-box input, .btn-search {
+        border-radius: 5px;
+    }
+    .search-box input {
+        text-align: center;
+        width: 100%;
+    }
+    .btn-search {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+.loading-overlay {
+    position: fixed; /* Fica parada no mesmo lugar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.95); /* Fundo escuro */
+    z-index: 9998; /* Fica por cima de tudo */
+    
+    /* Centraliza o conteúdo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    /* COMEÇA INVISÍVEL */
+    opacity: 0;
+    visibility: hidden;
+    
+    /* Animação suave de 0.4s */
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+/* Classe que o JS vai usar para MOSTRAR a tela */
+.loading-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animação do Spinner (o "carregando") */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3); /* Borda cinza */
+    border-top-color: var(--primary-color); /* Borda vermelha da sua marca */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Faz girar */
+    margin-bottom: 25px;
+}
+
+.loading-overlay p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* ==============================================
+   ESTILOS DO NOVO DASHBOARD (BABAR)
+   ============================================== */
+
+.admin-dashboard-body {
+    background-color: var(--light-color);
+    color: #363949;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 260px 1fr; /* Sidebar fixa e conteúdo flexível */
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ========== SIDEBAR (MENU LATERAL) ========== */
+.sidebar {
+    background-color: var(--dark-color);
+    color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-top .logo-moto-inverted {
+    color: var(--white-color); /* Garante que o "Motos" fique branco */
+    font-size: 1.8rem;
+}
+.sidebar-top {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #aeb2c4;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-nav .nav-link i {
+    font-size: 1.3rem;
+    width: 25px; /* Alinha os ícones */
+    text-align: center;
+}
+
+.sidebar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white-color);
+}
+
+.sidebar-nav .nav-link.active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.sidebar-nav .nav-link.disabled {
+    color: #777;
+    cursor: not-allowed;
+}
+
+.sidebar-nav .nav-link.logout {
+    margin-top: auto; /* Joga o "Sair" para o final */
+}
+
+.main-content {
+    padding: 20px;
+    padding-bottom: 80px; /* <-- Mude de 90px para 80px */
+}
+.main-content-header {
+    justify-content: center;
+    flex-direction: column; /* Empilha os títulos */
+    gap: 5px; /* Espaço entre "Mybmotos" e "Dashboard" */
+    margin-bottom: 25px; /* Espaço antes dos cards */
+}
+
+.admin-mobile-logo {
+  	 	display: block;
+}
+.main-content-header h1 {
+    font-size: 1.2rem;
+    color: #777;
+    font-weight: 500;
+}
+.header-user-info {
+  	 	display: none; /* Esconde nome do usuário */
+}
+
+.user-details {
+    text-align: right;
+}
+.user-details strong {
+    font-weight: 600;
+}
+.user-details span {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ========== CARDS DE ESTATÍSTICAS ========== */
+.overview-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--white-color);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--white-color);
+}
+.card-icon.blue { background-color: #007bff; }
+.card-icon.red { background-color: var(--primary-color); }
+.card-icon.green { background-color: #28a745; }
+
+.card-info .card-title {
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: 500;
+}
+.card-info .card-value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.recent-motos-container h2 {
+    margin-top: 30px;
+    text-align: center; /* <-- A CORREÇÃO */
+    font-size: 1.4rem;  /* Aumenta um pouco */
+    font-weight: 700; /* Dá mais destaque */
+}
+.table-wrapper {
+    background-color: var(--white-color);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow-x: auto; /* Para rolagem em telas pequenas */
+}
+
+.recent-motos-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recent-motos-table th,
+.recent-motos-table td {
+    padding: 18px 25px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.recent-motos-table th {
+    font-size: 0.9rem;
+    color: #777;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.recent-motos-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.recent-motos-table .btn-details-admin {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.recent-motos-table .btn-details-admin:hover {
+    text-decoration: underline;
+}
+
+/* Cole este código no seu style.css (FORA de qualquer @media) */
+
+.recent-motos-table th,
+.recent-motos-table td {
+    padding: 18px 25px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* === ADICIONE O CÓDIGO ABAIXO === */
+
+/* Agrupa imagem + título */
+.recent-moto-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Imagem da moto */
+.recent-moto-img {
+    width: 90px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* Título da moto */
+.recent-moto-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+
+/* === FIM DO CÓDIGO PARA ADICIONAR === */
+
+/* Responsividade do Dashboard */
+@media (max-width: 992px) {
+    .dashboard-container {
+        grid-template-columns: 1fr; /* Coluna única */
+    }
+    
+    .sidebar {
+        /* Para o futuro, podemos esconder a sidebar aqui */
+        display: none; /* Por enquanto, vamos esconder no mobile */
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+}
+
+/* ==============================================
+   MELHORIAS DE CSS DO DASHBOARD ("CAPRICHO")
+   ============================================== */
+
+/* Animação de entrada para o conteúdo */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#main-content-area {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Polimento da Sidebar */
+.sidebar {
+    transition: width 0.3s ease; /* Prepara para sidebar recolhível no futuro */
+}
+.sidebar-nav .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+.sidebar-nav .nav-link:hover {
+    background-color: var(--dark-color); /* Fundo mais escuro no hover */
+    color: var(--white-color);
+    transform: translateX(5px);
+}
+.sidebar-nav .nav-link.active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 600;
+}
+.sidebar-nav .nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 4px;
+    background-color: var(--white-color);
+    border-radius: 0 4px 4px 0;
+}
+
+/* Polimento dos Cards de Overview */
+.card {
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+.card-icon {
+    transition: transform 0.3s ease;
+}
+.card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+/* Polimento da Tabela de Motos Recentes */
+.table-wrapper {
+    box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+}
+.recent-motos-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+.recent-motos-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+.recent-motos-table .btn-details-admin {
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+.recent-motos-table .btn-details-admin:hover {
+    color: #c00;
+}
+
+
+#moto-list-body .moto-list-item:hover {
+    transform: none; /* Remove o efeito de subir */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: var(--primary-color);
+}
+.btn-action-text.btn-view {
+    font-weight: 600;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+.btn-action-text.btn-view:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+.btn-action-icon.btn-delete:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Polimento dos Modais (Adicionar e Editar) */
+.modal-overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-edit {
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.modal-overlay.is-visible .modal-edit {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Polimento dos Formulários (Inputs, Textarea, Select) */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea,
+.select-wrapper select {
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus,
+.select-wrapper select:focus {
+    background-color: var(--white-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.1);
+    outline: none;
+}
+.btn-submit-form {
+    box-shadow: 0 4px 15px rgba(230, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.btn-submit-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 0, 0, 0.3);
+}
+
+
+
+
+
+/* --- ESTILO DO CARD VENDIDO --- */
+.sold-banner-simple {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 700;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px 5px 0 0; /* Arredonda só os cantos de cima */
+    margin: -18px -18px 10px -18px; /* Puxa para as bordas do card-content */
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+/* Esconde o botão de favorito nos cards vendidos */
+.bike-card.is-sold .bike-favorite-icon {
+    display: none;
+}
+
+/* ==============================================
+   RESPONSIVIDADE DO PAINEL ADMIN
+============================================== */
+
+/* Botão Hamburger (escondido no desktop, visível no mobile) */
+.admin-menu-toggle {
+    display: none; /* Escondido por padrão */
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--dark-color);
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Overlay (para escurecer o fundo) */
+.admin-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1099; /* Fica abaixo do menu */
+}
+
+
+
+
+.admin-footer-nav {
+    display: none;
+}
+@media (max-width: 991px) {
+
+
+
+    .overview-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Isso está CORRETO, mantém a coluna centrada */
+    gap: 20px;
+    }
+    .overview-cards .card {
+    width: 90%; /* Faz o card ter 90% da largura da tela */
+    max-width: 450px; /* Limite máximo para tablets */
+    }
+    .card {
+        padding: 20px;
+    }
+
+}
+
+
+/* =============================================
+ * PONTO DE QUEBRA: 768px (Celulares)
+ * =============================================
+ */
+@media (max-width: 768px) {
+
+    /* --- 1. HEADER DO ADMIN --- */
+    .main-content-header h1 {
+        font-size: 1.5rem;
+    }
+    .header-user-info {
+        display: none;
+    }
+    /* Cole este bloco dentro de @media (max-width: 768px) */
+
+  	/* --- 2. FOOTER NAV MOBILE --- */
+  	.admin-footer-nav {
+  	 	display: flex;
+  	 	justify-content: space-around;
+  	 	position: fixed;
+  	 	bottom: 0;
+  	 	left: 0;
+  	 	width: 100%;
+  	 	background-color: var(--white-color);
+  	 	border-top: 1px solid var(--border-color);
+  	 	box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  	 	z-index: 1050;
+  	}
+
+  	.admin-footer-nav .nav-link {
+  	 	display: flex;
+  	 	flex-direction: column;
+  	 	align-items: center;
+  	 	justify-content: center;
+  	 	flex: 1;
+  	 	padding: 8px 5px;
+  	 	text-decoration: none;
+  	 	color: #777;
+  	 	font-size: 0.75rem;
+  	 	font-weight: 500;
+  	 	gap: 4px;
+  	 	transition: color 0.2s ease;
+  	}
+
+  	.admin-footer-nav .nav-link i {
+  	 	font-size: 1.2rem;
+  	}
+
+  	.admin-footer-nav .nav-link:hover {
+  	 	color: var(--dark-color);
+  	}
+
+  	.admin-footer-nav .nav-link.active {
+  	 	color: var(--primary-color);
+  	}
+
+    /* --- 2. TABELA DE ESTOQUE --- */
+    .moto-list-header {
+        display: none;
+    }
+
+    #moto-list-body .moto-list-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    #moto-list-body .col-info { grid-row: 1; }
+    #moto-list-body .col-preco { grid-row: 2; font-size: 1.1rem; }
+    #moto-list-body .col-ano { grid-row: 3; color: #555; }
+
+    #moto-list-body .col-acoes {
+        grid-row: 4;
+        justify-content: flex-start;
+        border-top: 1px solid var(--border-color);
+        padding-top: 15px;
+        margin-top: 5px;
+        gap: 10px;
+    }
+
+    /* --- 3. TABELA MOTO RECENTES (Dashboard) --- */
+    .recent-motos-table thead {
+        display: none;
+    }
+
+    .recent-motos-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+    grid-template-rows: auto auto auto;
+    gap: 10px 15px; /* MODIFICAÇÃO: Aumentei o gap vertical para 10px */
+    border: none;
+    padding: 15px;
+    margin: 0;
+    background-color: var(--white-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .recent-motos-table tbody tr:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .recent-motos-table td {
+        display: block;
+        border: none;
+        padding: 0;
+        text-align: left;
+        width: 100%;
+    }
+
+    /* Nome da moto */
+    .recent-motos-table td:nth-child(1) {
+        padding-bottom: 10px;
+        grid-column: 1 / 3;
+    }
+
+    /* Preço e ano lado a lado */
+    .recent-motos-table td:nth-child(2),
+    .recent-motos-table td:nth-child(3) {
+        display: inline-block;
+        width: 50%;
+        padding: 0;
+    }
+
+    .recent-motos-table td:nth-child(2) {
+    grid-row: 2;
+    grid-column: 1;
+    font-weight: 600;
+    font-size: 1.2rem; /* MODIFICAÇÃO: Aumentei o preço */
+    color: var(--dark-color);
+    align-self: center;
+    }
+
+    .recent-motos-table td:nth-child(3) {
+        color: #555;
+        text-align: right;
+    }
+
+    /* Ação / link */
+    .recent-motos-table td:nth-child(4) {
+        padding-top: 15px;
+        margin-top: 15px;
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+    }
+
+    /* --- 4. FORMULÁRIOS DOS MODAIS --- */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+
+}
+
+/* ==============================================
+    FIM DO CSS RESPONSIVO DO PAINEL ADMIN
+============================================== */
+
+
+/* --- ESTILOS DO NOVO LOGO NO ADMIN --- */
+
+/* Esconde o logo mobile no desktop por padrão */
+.admin-mobile-logo {
+    display: none;
+}
+
+/* Define a cor do 'Motos' para este logo.
+  A classe .logo-moto-inverted era branca, aqui forçamos ela a ser escura.
+*/
+.admin-mobile-logo .logo-moto-inverted {
+ font-family: 'Oswald', sans-serif;
+ font-weight: 500;
+ font-size: 1.8rem;
+ color: var(--dark-color); /* <-- A MUDANÇA IMPORTANTE */
+ margin-left: 5px;
+ position: relative;
+ top: -2px;
+}
+
+/* ==============================================
+   CORREÇÃO FORÇADA PARA O BUG DO DESKTOP
+   ============================================== */
+@media (min-width: 993px) {
+    .dashboard-container {
+    grid-template-columns: 260px 1fr !important;
+}
+}
+
+
+/* Estilo para o botão de exclusão permanente no modal */
+#delete-permanent-confirm-btn {
+    background-color: #dc3545; /* Vermelho perigo */
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+#delete-permanent-confirm-btn:hover {
+    background-color: #c82333;
+}
+
+
+
+
+/* ==============================================
+   ESTILOS DO NOVO MODAL DE CONFIRMAÇÃO
+============================================== */
+
+.modal-footer-confirm {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Botão confirmar */
+.modal-footer-confirm .btn-submit-form {
+    background-color: #28a745; /* Verde sucesso */
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    padding: 12px 25px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .3s ease, box-shadow .3s ease;
+}
+
+.modal-footer-confirm .btn-submit-form:hover {
+    background-color: #218838;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+}
+
+/* Botão cancelar */
+.modal-footer-confirm .btn-cancel {
+    padding: 12px 25px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    color: #555;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color .3s ease, border-color .3s ease;
+}
+
+.modal-footer-confirm .btn-cancel:hover {
+    background-color: #e0e0e0;
+    border-color: #bcbcbc;
+}
+
+/* ==============================================
+   ESTILOS DA MENSAGEM DE FEEDBACK (LOGIN)
+   ============================================== */
+
+.login-message-container {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-align: center;
+    display: none; /* Invisível até receber .success ou .error */
+}
+
+/* Sucesso */
+.login-message-container.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Erro */
+.login-message-container.error {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+
+/* ==============================================
+   ESTILOS DA NOVA PÁGINA SOBRE NÓS
+   ============================================== */
+
+/* --- 1. Seção Hero (Banner) --- */
+.about-hero {
+    position: relative;
+    padding: 100px 0; /* AUMENTADO */
+    text-align: center;
+    color: var(--white-color);
+    overflow: hidden; /* Necessário para o zoom */
+    background-color: var(--dark-color); /* Cor de fallback */
+}
+
+/* Efeito Ken Burns (Zoom) no background */
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/frontend/assets/img/motos/hero-exemplo-2.jpg'); /* MUDANÇA APLICADA */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    animation: kenBurns 10s linear infinite alternate;
+}
+
+/* Overlay escuro para legibilidade */
+.about-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 2;
+}
+
+.about-hero .container {
+    position: relative;
+    z-index: 3; /* Fica acima do overlay */
+}
+
+.about-hero h1 {
+    font-size: 3.2rem; /* AUMENTADO */
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    margin-bottom: 15px;
+}
+
+.about-hero p {
+    font-size: 1.3rem; /* AUMENTADO */
+    color: #f0f0f0;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    font-weight: 400;
+}
+
+
+/* --- 2. Seção Nossos Pilares --- */
+.our-values {
+    padding: 60px 0;
+    background-color: var(--white-color);
+}
+
+.our-values h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.value-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.value-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.value-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.value-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- 3. Seção Nossa História --- */
+.our-story {
+    padding: 60px 0;
+    background-color: var(--light-color);
+}
+
+.story-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.story-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.story-content h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.story-content h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.story-content p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* --- 4. Seção CTA (Call to Action) --- */
+.about-cta {
+    padding: 60px 0;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    text-align: center;
+}
+
+.about-cta h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.about-cta p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.btn-cta-large {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-cta-large:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(230, 0, 0, 0.4);
+}
+
+/* --- Responsividade da Página Sobre --- */
+@media (max-width: 992px) {
+    .story-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* ==============================================
+ ESTILOS DO BOTÃO COM LOADER (ADMIN)
+============================================== */
+.btn-submit-form {
+    position: relative;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* O loader começa escondido */
+.btn-submit-form .btn-loader {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre o ícone e o texto "Cadastrando..." */
+}
+
+/* Quando o botão estiver desativado (carregando) */
+.btn-submit-form:disabled {
+    opacity: 0.8;
+    cursor: wait; /* Muda o cursor para "espera" */
+}
+
+
+/* ==============================================
+   ESTILOS DA PÁGINA DE FINANCIAMENTOS (ADMIN) v2
+   ============================================== */
+.financiamento-list-header {
+    padding: 0 10px 20px 10px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+.financiamento-list-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+.financiamento-list-header p {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.financiamento-list-item {
+    display: grid;
+    /* 3 colunas: Cliente, Simulação, Meta */
+    grid-template-columns: 2.5fr 2fr 1fr;
+    gap: 25px;
+    padding: 20px;
+    background-color: var(--white-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    align-items: flex-start; /* Alinha pelo topo */
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Rótulos: Cliente / Simulação */
+.fin-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.fin-col-cliente {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.fin-cliente-nome {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.fin-cliente-contato {
+    font-size: 0.9rem;
+    color: #555;
+    word-break: break-all;
+}
+
+.fin-col-simulacao {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.95rem;
+}
+.fin-col-simulacao div {
+    line-height: 1.5;
+}
+
+/* Coluna da Meta (Data e Lixeira) */
+.fin-col-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100%;
+    text-align: right;
+    gap: 15px;
+}
+
+.fin-data {
+    font-size: 0.85rem;
+    color: #777;
+    font-weight: 500;
+}
+
+.btn-delete-financiamento {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #888;
+    padding: 5px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    margin-top: auto; /* Empurra a lixeira para baixo */
+}
+.btn-delete-financiamento:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .financiamento-list-item {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .fin-col-meta {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        border-top: 1px solid var(--border-color);
+        padding-top: 15px;
+    }
+    .btn-delete-financiamento {
+        margin-top: 0;
+    }
+}
+
+
+
+/* ==============================================
+   BOTÃO WHATSAPP (FINANCIAMENTOS ADMIN)
+   ============================================== */
+.btn-whatsapp-proposta {
+    margin-top: 15px;
+    background-color: #25D366;
+    border-color: #25D366;
+    color: var(--white-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-whatsapp-proposta:hover {
+    background-color: #1DA851;
+    border-color: #1DA851;
+    color: var(--white-color) !important;
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+    .btn-whatsapp-proposta {
+        width: 100%;
+    }
+}

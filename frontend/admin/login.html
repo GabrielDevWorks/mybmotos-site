@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Painel Administrativo mybMotos</title>
+
+    <link rel="stylesheet" href="/frontend/static/css/style.css">
+    <link rel="shortcut icon" href="/frontend/assets/img/logo1.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body class="admin-body">
+
+    <div class="login-page-container">
+
+        <div class="login-branding-side">
+            <div class="branding-content">
+                <a href="/" class="logo">
+                    <span class="logo-main">myb</span><span class="logo-moto-inverted">Motos</span>
+                </a>
+                <p>Gerencie seu estoque de forma simples e eficiente.</p>
+            </div>
+        </div>
+
+        <div class="login-form-side">
+            <div class="login-box">
+                <h2>Acesso Restrito</h2>
+                <p>Por favor, insira suas credenciais.</p>
+
+                <form id="login-form">
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="username" placeholder="Usuário" required>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Senha" required>
+                    </div>
+
+                    <!-- Mensagem de feedback -->
+                    <div id="login-message" class="login-message-container"></div>
+
+                    <button type="submit" class="btn-submit">Entrar no Painel</button>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/frontend/static/js/login.js"></script>
+</body>
+</html>

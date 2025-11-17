@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dashboard - mybMotos</title>
+
+    <link rel="stylesheet" href="/frontend/static/css/style.css">
+    <link rel="shortcut icon" href="/frontend/assets/img/logo1.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body class="admin-dashboard-body">
+
+    <div class="dashboard-container">
+
+        <aside class="sidebar" id="admin-sidebar">
+            <div class="sidebar-top">
+                <a href="dashboard.html" class="logo">
+                    <span class="logo-main">myb</span><span class="logo-moto-inverted">Motos</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard-overview" class="nav-link active" data-target="dashboard-overview">
+                    <i class="fa-solid fa-table-columns"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="estoque-admin" class="nav-link" data-target="estoque-admin">
+                    <i class="fa-solid fa-motorcycle"></i>
+                    <span>Estoque</span>
+                </a>
+
+                <a href="#" class="nav-link" id="btn-abrir-modal-add" data-target="add-moto">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Adicionar Moto</span>
+                </a>
+
+                <a href="vendidos-admin" class="nav-link" data-target="vendidos-admin">
+                    <i class="fa-solid fa-tags"></i>
+                    <span>Vendidos</span>
+                </a>
+
+                <a href="financiamentos-admin" class="nav-link" data-target="financiamentos-admin">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <span>Financiamentos</span>
+                </a>
+
+                <a href="/api/logout" class="nav-link logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Sair</span>
+                </a>
+            </nav>
+        </aside>
+
+        <div class="admin-menu-overlay" id="admin-menu-overlay"></div>
+
+        <main class="main-content">
+            <header class="main-content-header">
+                <button class="admin-menu-toggle" id="admin-menu-toggle-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <a href="dashboard" class="logo admin-mobile-logo">
+                    <span class="logo-main">myb</span><span class="logo-moto-inverted">Motos</span>
+                </a>
+
+                <h1 id="main-content-title">Dashboard</h1>
+
+                <div class="header-user-info"></div>
+            </header>
+
+            <div id="main-content-area"></div>
+        </main>
+    </div>
+
+    <nav class="admin-footer-nav">
+        <a href="dashboard-overview" class="nav-link active" data-target="dashboard-overview">
+            <i class="fa-solid fa-table-columns"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="estoque-admin" class="nav-link" data-target="estoque-admin">
+            <i class="fa-solid fa-motorcycle"></i>
+            <span>Estoque</span>
+        </a>
+        <a href="#" class="nav-link" id="btn-abrir-modal-add-mobile" data-target="add-moto">
+            <i class="fa-solid fa-plus"></i>
+            <span>Adicionar</span>
+        </a>
+        <a href="vendidos-admin" class="nav-link" data-target="vendidos-admin">
+            <i class="fa-solid fa-tags"></i>
+            <span>Vendidos</span>
+        </a>
+        <a href="financiamentos-admin" class="nav-link" data-target="financiamentos-admin">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Financ.</span>
+        </a>
+    </nav>
+
+    <!-- MODAL ADICIONAR -->
+    <div class="modal-overlay" id="add-modal-overlay">
+        <div class="modal-edit" id="add-modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Adicionar Nova Moto</h3>
+                <button class="btn-close-modal" id="add-modal-close-btn">×</button>
+            </div>
+
+            <div class="modal-body">
+                <form id="add-moto-form" enctype="multipart/form-data">
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="add-marca">Marca</label>
+                            <input type="text" id="add-marca" name="marca" placeholder="Ex: HONDA" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="add-modelo">Modelo</label>
+                            <input type="text" id="add-modelo" name="modelo" placeholder="Ex: CG 160 START" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="add-ano">Ano</label>
+                            <input type="number" id="add-ano" name="ano" placeholder="Ex: 2023" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="add-km">Quilometragem (KM)</label>
+                            <input type="number" id="add-km" name="km" placeholder="Ex: 9481" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="add-preco">Preço (R$)</label>
+                            <input type="text" id="add-preco" name="preco" placeholder="Ex: 16499.99" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="add-destaque">É um destaque?</label>
+                            <div class="select-wrapper">
+                                <select id="add-destaque" name="destaque">
+                                    <option value="0">Não</option>
+                                    <option value="1">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="add-descricao">Descrição</label>
+                            <textarea id="add-descricao" name="descricao" rows="3" placeholder="Ex: Manual e chave. Financiamos..."></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="add-imagens">Imagens da Moto (até 10)</label>
+                            <input type="file" id="add-imagens" name="imagens" accept="image/*" multiple>
+                            <div class="image-preview-container" id="add-image-preview-container"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit-form" id="add-moto-submit-btn">
+                            <span class="btn-text">Cadastrar Moto</span>
+                            <span class="btn-loader"><i class="fa-solid fa-spinner fa-spin"></i> Cadastrando...</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL EDITAR -->
+    <div class="modal-overlay" id="edit-modal-overlay">
+        <div class="modal-edit" id="edit-modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Editar Moto</h3>
+                <button class="btn-close-modal" id="edit-modal-close-btn">×</button>
+            </div>
+
+            <div class="modal-body">
+                <form id="edit-moto-form" enctype="multipart/form-data">
+
+                    <input type="hidden" id="edit-moto-id" name="id">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="edit-marca">Marca</label>
+                            <input type="text" id="edit-marca" name="marca" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-modelo">Modelo</label>
+                            <input type="text" id="edit-modelo" name="modelo" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-ano">Ano</label>
+                            <input type="number" id="edit-ano" name="ano" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-km">Quilometragem (KM)</label>
+                            <input type="number" id="edit-km" name="km" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-preco">Preço (R$)</label>
+                            <input type="text" id="edit-preco" name="preco" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-destaque">É um destaque?</label>
+                            <div class="select-wrapper">
+                                <select id="edit-destaque" name="destaque">
+                                    <option value="0">Não</option>
+                                    <option value="1">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="edit-descricao">Descrição</label>
+                            <textarea id="edit-descricao" name="descricao" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Imagens Atuais</label>
+                            <div class="image-preview-container" id="edit-image-current-container"></div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="edit-imagens">Adicionar Novas Imagens</label>
+                            <input type="file" id="edit-imagens" name="imagens" accept="image/*" multiple>
+                            <div class="image-preview-container" id="edit-image-preview-container"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit-form">Salvar Alterações</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CONFIRMAR VENDA -->
+    <div class="modal-overlay" id="sell-modal-overlay">
+        <div class="modal-edit" id="sell-modal" style="max-width:450px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirmar Venda</h3>
+                <button class="btn-close-modal" id="sell-modal-close-btn">×</button>
+            </div>
+
+            <div class="modal-body" style="text-align:center; padding:30px 20px;">
+                <p style="font-size:1.1rem; margin-bottom:10px;">
+                    Tem certeza que deseja marcar esta moto como vendida?
+                </p>
+                <p style="color:#666;">
+                    Ela sairá do estoque principal e será movida para a lista de "Vendidos".
+                </p>
+
+                <input type="hidden" id="sell-moto-id" name="id">
+
+                <div class="form-actions" style="border-top:none; margin-top:20px; padding-top:0;">
+                    <button type="button" class="btn-submit-form" id="sell-modal-confirm-btn" style="background-color:#28a745;">
+                        Sim, confirmar Venda
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL EXCLUSÃO PERMANENTE -->
+    <div class="modal-overlay" id="delete-permanent-modal-overlay">
+        <div class="modal-edit" id="delete-permanent-modal" style="max-width:450px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Excluir Moto Permanentemente</h3>
+                <button class="btn-close-modal" id="delete-permanent-close-btn">×</button>
+            </div>
+
+            <div class="modal-body" style="text-align:center; padding:30px 20px;">
+                <p style="font-size:1.1rem; margin-bottom:10px;">Tem certeza que deseja excluir esta moto permanentemente?</p>
+                <p style="color:#666;">Esta ação não pode ser desfeita. A moto será removida do banco de dados.</p>
+
+                <input type="hidden" id="delete-permanent-moto-id" name="id">
+
+                <div class="form-actions" style="border-top:none; margin-top:20px; padding-top:0;">
+                    <button type="button" class="btn-submit-form" id="delete-permanent-confirm-btn">
+                        Sim, excluir permanentemente
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL NOTIFICAÇÃO -->
+    <div class="modal-overlay" id="notification-modal-overlay">
+        <div class="modal" id="notification-modal">
+            <div class="modal-icon"><i class="fa-solid fa-check-circle"></i></div>
+
+            <h3 class="modal-title" id="notification-title">Sucesso!</h3>
+
+            <div class="modal-body">
+                <p id="notification-message">Sua ação foi concluída.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-modal-close" id="notification-close-btn">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CONFIRMAÇÃO GENÉRICA -->
+    <div class="modal-overlay" id="confirmation-modal-overlay">
+        <div class="modal-edit" id="confirmation-modal" style="max-width:450px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirmar Ação</h3>
+                <button class="btn-close-modal" id="confirmation-close-btn">×</button>
+            </div>
+
+            <div class="modal-body" style="text-align:center; padding:30px 20px;">
+                <p style="font-size:1.1rem;" id="confirmation-message">Você tem certeza?</p>
+
+                <div class="modal-footer-confirm">
+                    <button type="button" class="btn-cancel" id="confirmation-cancel-btn">Cancelar</button>
+                    <button type="button" class="btn-submit-form" id="confirmation-confirm-btn">Sim, confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/frontend/static/js/admin-master.js"></script>
+</body>
+</html>
